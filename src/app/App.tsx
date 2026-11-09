@@ -1,4 +1,5 @@
 import { useState } from "react";
+import StudentDashboard from "./StudentDashboard";
 import { ChaptersPage, LessonPage } from "../features/learning/LearningPages";
 import { Link, NavLink, Route, Routes } from "react-router-dom";
 import { ArrowRight, BookOpen, BrainCircuit, Calculator, ChartColumnIncreasing, Check, ChevronDown, ClipboardCheck, GraduationCap, Menu, Play, Rocket, Target, UserRound, X } from "lucide-react";
@@ -107,6 +108,7 @@ export default function App() {
   return <Routes>
     <Route path="/" element={<Home/>}/>
     <Route path="/start" element={<Entry kind="start"/>}/>
+    <Route path="/dashboard" element={<><Header/><StudentDashboard/></>}/>
     <Route path="/inloggen" element={<Entry kind="login"/>}/>
     <Route path="/hoofdstukken" element={<><Header/><ChaptersPage/></>}/>
     <Route path="/hoofdstukken/:slug" element={<><Header/><LessonPage/></>}/>
