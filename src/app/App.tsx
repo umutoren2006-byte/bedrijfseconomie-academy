@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ChaptersPage, LessonPage } from "../features/learning/LearningPages";
 import { Link, NavLink, Route, Routes } from "react-router-dom";
 import { ArrowRight, BookOpen, BrainCircuit, Calculator, ChartColumnIncreasing, Check, ChevronDown, ClipboardCheck, GraduationCap, Menu, Play, Rocket, Target, UserRound, X } from "lucide-react";
 
@@ -25,14 +26,14 @@ function Header() {
       <Brand/>
       <nav id="main-navigation" aria-label="Hoofdnavigatie" className={open ? "nav open" : "nav"}>
         <NavLink to="/" end onClick={() => setOpen(false)}>Home</NavLink>
-        <a href={`${import.meta.env.BASE_URL}#platform`} onClick={() => setOpen(false)}>Het platform</a>
+        <NavLink to="/hoofdstukken" onClick={() => setOpen(false)}>Hoofdstukken</NavLink>
         <a href={`${import.meta.env.BASE_URL}#studenten`} onClick={() => setOpen(false)}>Voor studenten</a>
         <a href={`${import.meta.env.BASE_URL}#docenten`} onClick={() => setOpen(false)}>Voor docenten</a>
         <a href={`${import.meta.env.BASE_URL}#faq`} onClick={() => setOpen(false)}>Veelgestelde vragen</a>
       </nav>
       <div className="header-actions">
         <Link to="/inloggen" className="button button-outline"><UserRound size={18}/> Inloggen</Link>
-        <Link to="/start" className="button button-gold">Start direct <ArrowRight size={18}/></Link>
+        <Link to="/hoofdstukken" className="button button-gold">Start met leren <ArrowRight size={18}/></Link>
       </div>
       <button className="menu-toggle" aria-label={open ? "Menu sluiten" : "Menu openen"} aria-controls="main-navigation" aria-expanded={open} onClick={() => setOpen(v => !v)}>{open ? <X/> : <Menu/>}</button>
     </div>
@@ -50,7 +51,7 @@ function Home() {
             <h1>Begrijp bedrijfseconomie.<span>Ga voorbereid je toets in.</span></h1>
             <p className="hero-intro">Leer op jouw niveau, oefen met slimme opdrachten en ontdek precies welke onderwerpen je nog kunt verbeteren. De AI-docent wordt in een volgende fase toegevoegd.</p>
             <div className="hero-actions">
-              <Link to="/start" className="button button-gold button-large"><Play size={18}/> Begin met leren <ArrowRight size={20}/></Link>
+              <Link to="/hoofdstukken" className="button button-gold button-large"><Play size={18}/> Begin met leren <ArrowRight size={20}/></Link>
               <a href="#platform" className="button button-outline button-large"><BookOpen size={19}/> Bekijk het platform</a>
             </div>
             <div className="hero-benefits"><span><Check/> Mbo-niveau</span><span><Check/> Persoonlijke leerdoelen</span><span><Check/> Startomgeving bekijken</span></div>
@@ -74,7 +75,7 @@ function Home() {
         <div id="studenten" className="study-banner">
           <GraduationCap className="banner-cap" size={74}/>
           <div><h3>Jouw toets. Jouw leerplan.</h3><p>De Academy wordt jouw persoonlijke plek om bedrijfseconomie écht te begrijpen.</p></div>
-          <Link to="/start" className="button button-dark">Bekijk de startomgeving <ArrowRight size={19}/></Link>
+          <Link to="/hoofdstukken" className="button button-dark">Bekijk de hoofdstukken <ArrowRight size={19}/></Link>
         </div>
       </section>
       <section className="info-section" id="docenten">
@@ -107,6 +108,8 @@ export default function App() {
     <Route path="/" element={<Home/>}/>
     <Route path="/start" element={<Entry kind="start"/>}/>
     <Route path="/inloggen" element={<Entry kind="login"/>}/>
+    <Route path="/hoofdstukken" element={<><Header/><ChaptersPage/></>}/>
+    <Route path="/hoofdstukken/:slug" element={<><Header/><LessonPage/></>}/>
     <Route path="*" element={<><Header/><main className="entry-main"><div className="entry-card"><h1>Pagina niet gevonden</h1><Link to="/" className="button button-gold">Terug naar home <ArrowRight size={18}/></Link></div></main></>}/>
   </Routes>;
 }
