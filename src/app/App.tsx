@@ -25,10 +25,10 @@ function Header() {
       <Brand/>
       <nav id="main-navigation" aria-label="Hoofdnavigatie" className={open ? "nav open" : "nav"}>
         <NavLink to="/" end onClick={() => setOpen(false)}>Home</NavLink>
-        <a href="/#platform" onClick={() => setOpen(false)}>Het platform</a>
-        <a href="/#studenten" onClick={() => setOpen(false)}>Voor studenten</a>
-        <a href="/#docenten" onClick={() => setOpen(false)}>Voor docenten</a>
-        <a href="/#faq" onClick={() => setOpen(false)}>Veelgestelde vragen</a>
+        <a href={`${import.meta.env.BASE_URL}#platform`} onClick={() => setOpen(false)}>Het platform</a>
+        <a href={`${import.meta.env.BASE_URL}#studenten`} onClick={() => setOpen(false)}>Voor studenten</a>
+        <a href={`${import.meta.env.BASE_URL}#docenten`} onClick={() => setOpen(false)}>Voor docenten</a>
+        <a href={`${import.meta.env.BASE_URL}#faq`} onClick={() => setOpen(false)}>Veelgestelde vragen</a>
       </nav>
       <div className="header-actions">
         <Link to="/inloggen" className="button button-outline"><UserRound size={18}/> Inloggen</Link>
