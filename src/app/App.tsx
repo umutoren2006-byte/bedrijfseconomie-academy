@@ -55,7 +55,7 @@ function Home() {
               <Link to="/hoofdstukken" className="button button-gold button-large"><Play size={18}/> Begin met leren <ArrowRight size={20}/></Link>
               <a href="#platform" className="button button-outline button-large"><BookOpen size={19}/> Bekijk het platform</a>
             </div>
-            <div className="hero-benefits"><span><Check/> Mbo-niveau</span><span><Check/> Persoonlijke leerdoelen</span><span><Check/> Startomgeving bekijken</span></div>
+            <p style={{marginTop:20}}><Link to="/dashboard" style={{color:"#f4d28d",textDecoration:"underline",fontWeight:700}}>Bekijk het studentendashboard (demo) →</Link></p><div className="hero-benefits"><span><Check/> Mbo-niveau</span><span><Check/> Persoonlijke leerdoelen</span><span><Check/> Startomgeving bekijken</span></div>
           </div>
           <div className="hero-visual" aria-label="Voorbeeld van een persoonlijke leeromgeving">
             <div className="illustration"><GraduationCap size={108} strokeWidth={1.1}/><span className="float-book"><BookOpen size={65}/></span><span className="float-calc"><Calculator size={46}/></span><span className="float-chart"><ChartColumnIncreasing size={58}/></span></div>
